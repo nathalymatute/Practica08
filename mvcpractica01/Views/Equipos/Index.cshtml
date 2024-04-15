@@ -1,0 +1,84 @@
+﻿@{
+    ViewData["Title"] = "Equipos";
+}
+@{
+    IEnumerable<string> strLista = new List<string> { "Laptop", "Impresora", "Accesorios", "Proyectores" };
+}
+@{
+    IEnumerable<string> modelLista = new List<string> { "Lenovo", "Hp", "Dell", "Acer","Azus", "MSI", "Razer" };
+}
+
+<div class="text-center">
+    
+    <h1 class="display-4"><b>Equipos Store</b> </h1>
+    <h2>Mantenimiento de Equipos</h2>
+</div>
+<div class="row">
+    <div class="form-group">
+        <label>Nombre Equipo</label>
+
+        @Html.TextBox("txtNombre", "",new{@class="form-control"})
+    </div>
+    <br />
+    <br />
+    <br />
+    <div class="form-group">
+        @Html.Label("lblTipoequipo","Tipo equipo")
+
+        @Html.DropDownList("ddlTipoEquipo",new SelectList(strLista),"Seleccione un Tipo")
+    </div>
+    <br />
+    <br />
+    <div class="form-group">
+        @Html.Label("lblTipomarca","Marca")
+
+        @Html.DropDownList("ddlTipomarca",new SelectList(modelLista),"Seleccione un Marca")
+    </div>
+    <br />
+    <br />
+
+    <div class="form-group">
+        @Html.Label("lblDescripcion","Descripción")
+
+        @Html.TextArea("txaDescripción", "",new{@class="form-control"})
+    </div>
+    <div class="form-group">
+        @Html.Label("lblmodelo","Modelo")
+
+        @Html.TextArea("txtModelo", "",new{@class="form-control"})
+    </div>
+    <div class="form-group">
+        @Html.Label("lblaniocompra","Año de la compra")
+
+        @Html.ListBox("Lista",new List<SelectListItem>{
+        new SelectListItem{Text="2005", Value="2005"},
+        new SelectListItem{Text="2006", Value="2006"},
+        new SelectListItem{Text="2007", Value="2007"}
+        })
+    </div>
+    <div class="form-group">
+        @Html.Label("lblcosto","Costo")
+
+        @Html.TextBox("txtCosto","",new{@class="form-control"})
+    </div>
+    <div class="form-group">
+        @Html.Label("lblVidautil","Vida util")
+
+        @Html.TextBox("txtvidautil","",new{@class="form-control"})
+    </div>
+    <br/>
+    <br/>
+    <div class="form-group">
+        @Html.Label("lblestado","Estado")
+        @Html.CheckBox("Estado") Activo
+        @Html.CheckBox("Estado") Inactivo
+        
+    </div>
+    <br/>
+    <br/>
+    <div class="form-group">
+        
+        @Html.ActionLink("Guardar","Guardar","Home",null,new{@class="btn btn-primary"})
+    </div>
+    
+</div>
